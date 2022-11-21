@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  api:
+    container_name: fast_api
+    build: ./work_api
+    restart: always
+    volumes:
+      - ./work_api:/work_api
+    ports:
+      - '8000:8000'
+    
+    
+  
