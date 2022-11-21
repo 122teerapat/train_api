@@ -1,9 +1,7 @@
 FROM python:3.10.7
 
-WORKDIR /work_api
+COPY . .
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+RUN pip install fastapi uvicorn
 
-EXPOSE 8000
-CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
